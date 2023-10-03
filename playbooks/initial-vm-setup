@@ -5,13 +5,14 @@
   tasks:
   - name: install packages
     apt:
+      upgrade: yes
+      update_cache: yes
       name:
         - curl
         - unzip
         - nfs-common
-        - qemu-guest-agent
-      update_cache: yes
-  - name: start guest qemu-guest-agent
+
+  - name: Ensure guest qemu-guest-agent is started
     service:
       name: qemu-guest-agent
       state: started
