@@ -3,10 +3,12 @@
   hosts: all
   become: yes
   tasks:
-  - name: install packages
+  - name: Upgrade initial packages
     apt:
       upgrade: yes
       update_cache: yes
+  - name: install packages
+    apt:
       name:
         - curl
         - unzip
